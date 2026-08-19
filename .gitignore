@@ -1,0 +1,8 @@
+# OS, editor, and tooling artifacts.
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+.idea/
+.vscode/
+node_modules/
