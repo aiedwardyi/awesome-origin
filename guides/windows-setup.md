@@ -46,9 +46,16 @@ wrote and read back fine, and branch tracking saved correctly. So metadata being
 of that symptom is **unconfirmed**, and repo-level git config writes on `/mnt/c` are not
 something I can say fail without it.
 
-If you do see the symptom, do not trust the success message. Read the setting back,
-`git branch -vv` shows whether the upstream actually saved, and check whether metadata is
-on at all.
+If you do see the symptom, do not trust the success message. Read the setting back at the
+repo level:
+
+```bash
+git config --get branch.<branch>.remote
+git config --get branch.<branch>.merge
+```
+
+Both print nothing if the write did not land. `git branch -vv` is the quicker summary view
+of the same thing. Also check whether metadata is on at all.
 
 To enable it, edit the WSL config:
 
