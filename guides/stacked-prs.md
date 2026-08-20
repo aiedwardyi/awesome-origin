@@ -21,7 +21,7 @@ The official CLI reference at `cursor.com/docs/origin/cli/reference/pull-request
 lists every `origin pr` subcommand with its options. The `create` table lists 12 options and
 `--stack-on` is not among them.
 
-![Official Origin CLI docs showing the create options table with twelve flags listed and no stack-on flag](images/2026-08-20-docs-create-table-no-stackon.png)
+<img src="images/2026-08-20-docs-create-table-no-stackon.png" alt="Official Origin CLI docs showing the create options table with twelve flags listed and no stack-on flag" width="900">
 
 The flag is also absent from `origin pr create --help` as its own entry. It appears only
 inside the description of another flag, where `--base` is documented as defaulting to "the
@@ -52,7 +52,7 @@ origin pr create --push --status open -f --stack-on 2
 
 `--stack-on` takes the parent pull request number. The output confirms the link:
 
-![Terminal output showing Stacked on number 2 followed by a tip about restacking behavior](images/2026-08-20-stackedon-terminal.png)
+<img src="images/2026-08-20-stackedon-terminal.png" alt="Terminal output showing Stacked on number 2 followed by a tip about restacking behavior" width="859">
 
 That tip text does not appear in the published docs. It states that on inbound GitHub
 mirrors you own the restack yourself, while Origin-source-of-truth repos restack
@@ -60,17 +60,17 @@ automatically.
 
 The web UI then shows the stack as a unit, with a merge button covering both pull requests:
 
-![Origin stack panel showing pull request 3 above pull request 2 above main, both marked ready to merge](images/2026-08-20-stack-panel.png)
+<img src="images/2026-08-20-stack-panel.png" alt="Origin stack panel showing pull request 3 above pull request 2 above main, both marked ready to merge" width="861">
 
 ## What happens when the parent changes
 
 Push a new commit to the parent branch and the stack goes stale immediately:
 
-![Origin stack panel showing pull request 3 marked Needs restack after its parent branch changed](images/2026-08-20-needs-restack.png)
+<img src="images/2026-08-20-needs-restack.png" alt="Origin stack panel showing pull request 3 marked Needs restack after its parent branch changed" width="871">
 
 Merging is blocked until the stack is updated:
 
-![Origin pull request page showing merging is blocked because the stack is out of date](images/2026-08-20-26-restacked-blocked.png)
+<img src="images/2026-08-20-26-restacked-blocked.png" alt="Origin pull request page showing merging is blocked because the stack is out of date" width="900">
 
 This is worth stating plainly, because the CLI tip suggests otherwise: **restacking is not
 automatic.** It did not happen on its own for a conflicting change or for a clean,
@@ -79,13 +79,17 @@ non-overlapping one. In both cases Origin waited for the Restack button.
 Clicking Restack on a clean change works. Origin rebases the branch server-side and the
 stack goes green again:
 
-![Toast notification reading Stack updated](images/2026-08-20-stack-updated-toast.png)
+<img src="images/2026-08-20-stack-updated-toast.png" alt="Toast notification reading Stack updated" width="561">
 
 ## When Restack fails
 
-If the parent's change conflicts with the child's, the button gives up:
+If the parent's change conflicts with the child's, the button gives up.
 
-![Error toast reading cannot restack, pull request 3 conflicts with its new base](images/2026-08-20-restack-failed-toast.png)
+<img src="images/2026-08-20-restack-failed-toast.png" alt="Error toast reading Rebase failed, rebase operation failed, try rebasing again or rebase locally" width="661">
+
+The toast is generic, but the underlying error names the conflicting file: "Cannot
+restack at pull request #3: pull request #3 conflicts with its new base (NOTES.md).
+No branches were changed."
 
 Origin is correct to refuse here. A real content conflict needs a person. Resolve it locally:
 
@@ -104,7 +108,7 @@ since your last fetch.
 
 The stack returns to a mergeable state:
 
-![Origin pull request page showing ready to merge as stack after a successful restack](images/2026-08-20-restack-fixed.png)
+<img src="images/2026-08-20-restack-fixed.png" alt="Origin pull request page showing ready to merge as stack after a successful restack" width="900">
 
 ## Gotchas
 
