@@ -8,18 +8,19 @@ The third-party ecosystem is still forming. As of August 19, 2026, a small numbe
 
 ## Contents
 
-- [Guides](#guides)
+- [Hands-On Guides](#hands-on-guides)
 - [Official Docs](#official-docs)
 - [CLI & Tools](#cli--tools)
-- [Guides & Tutorials](#guides--tutorials)
+- [Community Guides & Tutorials](#community-guides--tutorials)
 - [Launch Coverage](#launch-coverage)
 - [Community Discussion](#community-discussion)
 - [Example Repos & Apps](#example-repos--apps)
 - [Ecosystem Status & Opportunities](#ecosystem-status--opportunities)
 
-## Guides
+## Hands-On Guides
 
 - [Stacked pull requests in Cursor Origin](guides/stacked-prs.md) - Using the `--stack-on` flag on `origin pr create`, which works but is not in the official CLI reference or the CLI's own `--help`. Covers restacking and conflict recovery.
+- [Setting up Origin on Windows](guides/windows-setup.md) - Getting the CLI working through WSL, covering the four walls a real setup hits: no native Windows build, metadata on `/mnt/c`, missing git identity, and the CLI installing off PATH.
 
 ## Official Docs
 
@@ -53,11 +54,11 @@ The third-party ecosystem is still forming. As of August 19, 2026, a small numbe
 - [Origin REST API](https://cursor.com/docs/api/origin) - REST API for building Origin Apps. Alpha maturity (`v1alpha1`), with an [OpenAPI 3.1 spec](https://cursor.com/docs/api/origin/openapi.yaml) published for codegen.
 - [@cursor/sdk](https://www.npmjs.com/package/@cursor/sdk) - Official TypeScript SDK, currently in public beta. Covers Cursor agents, not the Origin API.
 
-The CLI has no native Windows build. It targets macOS and Linux only per the [CLI docs](https://cursor.com/docs/origin/cli), so Windows users need WSL. Run `origin auth login` to configure the HTTPS Git credential helper.
+Windows is supported through WSL, with no native Windows build, per the [CLI docs](https://cursor.com/docs/origin/cli). See [Setting up Origin on Windows](guides/windows-setup.md). Run `origin auth login` to configure the HTTPS Git credential helper.
 
 No standalone community Origin API SDK was found in GitHub searches on August 19, 2026. See [Ecosystem Status & Opportunities](#ecosystem-status--opportunities).
 
-## Guides & Tutorials
+## Community Guides & Tutorials
 
 - [Learn Cursor: Origin Guide](https://www.learncursor.dev/guides/cursor-origin) - Independent guide aimed at engineering leaders and platform teams, updated July 16, 2026. Distinguishes confirmed facts from inference.
 - [explainx.ai: Cursor Origin - GitHub Alternative for AI Agents](https://www.explainx.ai/blog/cursor-origin-git-hosting-github-alternative-ai-agents-2026) - Overview of the agent-first hosting pitch.
