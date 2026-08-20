@@ -8,6 +8,7 @@ The third-party ecosystem is still forming. As of August 19, 2026, a small numbe
 
 ## Contents
 
+- [Guides](#guides)
 - [Official Docs](#official-docs)
 - [CLI & Tools](#cli--tools)
 - [Guides & Tutorials](#guides--tutorials)
@@ -15,6 +16,10 @@ The third-party ecosystem is still forming. As of August 19, 2026, a small numbe
 - [Community Discussion](#community-discussion)
 - [Example Repos & Apps](#example-repos--apps)
 - [Ecosystem Status & Opportunities](#ecosystem-status--opportunities)
+
+## Guides
+
+- [Stacked pull requests in Cursor Origin](guides/stacked-prs.md) - Using the `--stack-on` flag on `origin pr create`, which works but is not in the official CLI reference or the CLI's own `--help`. Covers restacking and conflict recovery.
 
 ## Official Docs
 
