@@ -50,12 +50,13 @@ If you do see the symptom, do not trust the success message. Read the setting ba
 repo level:
 
 ```bash
-git config --get branch.<branch>.remote
-git config --get branch.<branch>.merge
+BRANCH=$(git branch --show-current)
+git config --get branch.$BRANCH.remote
+git config --get branch.$BRANCH.merge
 ```
 
-Both print nothing if the write did not land. `git branch -vv` is the quicker summary view
-of the same thing. Also check whether metadata is on at all.
+Both reads print nothing if the write did not land. `git branch -vv` is the quicker
+summary view of the same thing. Also check whether metadata is on at all.
 
 To enable it, edit the WSL config:
 
