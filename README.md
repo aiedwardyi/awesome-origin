@@ -112,7 +112,6 @@ As of August 19, 2026, community examples on the Origin API are minimal and no s
 - **API discovery is uneven.** The site-wide `llms.txt` lists Origin's doc pages but omits the API reference, so an agent starting there will not find it. The API's own index, full Markdown reference, and OpenAPI spec are all published, just not surfaced from the top-level index.
 - **Review threads are CLI-only.** The CLI supports full thread resolve/reopen/reply, but REST has no first-class thread resource or resolution API.
 - **Mirrored-in repos are excluded from the app layer.** Most repos on day one arrive by mirroring from GitHub, the advertised on-ramp. Mirrored-in repos are excluded from app installations, installation tokens, and app webhooks, and app requests naming them return 403.
-- **No forge-level observability tool.** Agent-runtime observability is already a crowded category. No Origin-specific forge observability tool, covering the repo, PR, check and merge-conflict layer where agent swarms collide, was found in this audit.
 - **No native Windows CLI build.** Windows developers need WSL to authenticate and push. Run `origin auth login` to configure the HTTPS Git credential helper.
 - **No independent Korean content.** No independent Korean guide, tutorial, or video was found as of August 19, 2026, in a market with a large and fast-moving developer community. Official Korean coverage exists.
 
