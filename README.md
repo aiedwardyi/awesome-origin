@@ -20,7 +20,7 @@ The third-party ecosystem is still forming. As of August 19, 2026, a small numbe
 ## Hands-On Guides
 
 - [Stacked pull requests in Cursor Origin](guides/stacked-prs.md) - Using the `--stack-on` flag on `origin pr create`, which works but is not in the official CLI reference or the CLI's own `--help`. Covers restacking and conflict recovery.
-- [Setting up Origin on Windows](guides/windows-setup.md) - Getting the CLI working through WSL, covering the four walls a real setup hits: no native Windows build, metadata on `/mnt/c`, missing git identity, and the CLI installing off PATH.
+- [Setting up Origin on Windows](https://github.com/aiedwardyi/awesome-origin/blob/main/guides/windows-setup.md) - WSL install, /mnt/c metadata fix, missing git identity, and CLI PATH issues. Tested 2026-08-20.
 
 ## Official Docs
 
