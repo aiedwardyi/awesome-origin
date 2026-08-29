@@ -4,7 +4,7 @@ Origin supports stacked pull requests through an `--stack-on` flag on `origin pr
 The flag works today. It is not listed in the official CLI reference or in the CLI's own
 `--help` output, so this guide documents how to use it.
 
-Tested 2026-08-20 on an Origin-native repo.
+Tested 2026-08-20 on an Origin-native repo. Stack merge behaviour tested 2026-08-29.
 
 ## What a stack is
 
@@ -119,9 +119,31 @@ The stack returns to a mergeable state:
 | Conflicts | The Restack button fails. Rebase locally and force-push with lease |
 | Force pushing | Use `--force-with-lease`, never plain `--force` |
 | Base branch | With `--stack-on`, `--base` defaults to the parent's head branch |
-| Merge button | Says "Merge N PRs" and merges the whole stack bottom-up |
+| Merge button | Says "Merge N PRs". On a two-PR stack it performed a single merge of the top branch into main, and the "Squash and Merge" label did not squash. See below |
+
+## Merging the stack
+
+Tested 2026-08-29 on a separate two-PR stack, Origin-native repo, as the repository owner.
+
+The stack panel's "Merge 2 PRs" button opens a dialog labelled "Merge strategy: Squash and
+Merge". The result was neither a squash nor a bottom-up sequence.
+
+- Main went from 1 commit to 4: a merge commit, plus both original branch commits still
+  reachable as second-parent ancestors. A squash merge would leave neither.
+- Both pull requests closed on the same merge SHA with the same merge timestamp, which is
+  one merge of the top branch rather than a merge per pull request.
+- The lower pull request's base was never retargeted.
+- All three remote branches survived. Nothing was deleted automatically.
+
+Verified by reading `git log` and the Origin API after the merge, not from the interface.
+One run, two-PR stack, repository owner, Origin CLI 2026.08.15-22-58-04-922a05a. Behaviour
+with more than two pull requests, and with a different merge strategy selected, was not
+tested.
+
+Check main after a stack merge rather than relying on the dialog label.
 
 ## Notes
 
 Origin is in early beta and this behavior may change. Everything above was verified
-firsthand on 2026-08-20 against an Origin-native repo, Origin CLI 2026.08.15-22-58-04-922a05a.
+firsthand against Origin-native repos on Origin CLI 2026.08.15-22-58-04-922a05a: the stack
+creation and restack behaviour on 2026-08-20, the merge behaviour on 2026-08-29.
