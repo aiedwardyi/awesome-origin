@@ -9,7 +9,8 @@ Tested 2026-08-20 on an Origin-native repo. Stack merge behaviour tested 2026-08
 ## What a stack is
 
 A stack is a chain of branches, each branched off the one below it, each with its own pull
-request. You review them small and merge them bottom-up instead of shipping one large change.
+request. Each one stays small enough to review on its own. See "Merging the stack" below
+for what Origin's merge button actually does.
 
 Plain git already allows branching off a branch. What stack support adds is the bookkeeping:
 Origin knows the pull requests belong to one stack, shows them as a unit, detects when a
